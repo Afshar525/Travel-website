@@ -16,15 +16,24 @@ h2 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(Staybnb.png/images/banner.png);
     background-size: cover;
     background-position: center;
+    padding-top: 100px;
 }
 
 nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    /* Logo left, nav center, register right */
     align-items: center;
     padding: 20px 7%;
-    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
 }
+
 
 .logo {
     width: 140px;
@@ -33,9 +42,24 @@ nav {
 
 .nav-links {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 50px;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    /* Ye important hai - nav ko center me rakhta hai */
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
 }
 
 .nav-links li {
@@ -328,47 +352,6 @@ nav {
     }
 }
 
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .Register-btn {
-        padding: 10px 18px;
-    }
-
-    .search-bar {
-        width: 90%;
-        border-radius: 20px;
-        padding: 15px;
-    }
-
-    .search-bar form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .search-bar form button {
-        align-self: center;
-        margin-top: 10px;
-    }
-
-    .cta h3 {
-        font-size: 6vw;
-    }
-
-    .stories p {
-        font-size: 16px;
-    }
-}
-
 @media (max-width: 480px) {
     .header h1 {
         font-size: 8vw;
@@ -391,5 +374,41 @@ nav {
     .start-btn {
         font-size: 16px;
         padding: 12px;
+    }
+}
+
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/* Mobile view */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* by default hidden */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .right-section {
+        gap: 10px;
+    }
+
+    .hamburger {
+        display: block;
     }
 }

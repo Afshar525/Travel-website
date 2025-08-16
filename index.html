@@ -16,13 +16,23 @@
     <div class="header">
         <nav>
             <img src="Staybnb.png/images/logo.png" class="logo" alt="logo">
+
             <ul class="nav-links">
                 <li><a href="#" class="active">Popular Places</a></li>
                 <li><a href="#">Travel Outside</a></li>
                 <li><a href="#">Online Packages</a></li>
             </ul>
-            <a href="#" class="Register-btn">Register Now</a>
+
+            <div class="right-section">
+                <div class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <a href="#" class="Register-btn">Register Now</a>
+            </div>
         </nav>
+
+
+
 
         <div class="container">
             <h1>Find Your Next Stay</h1>
@@ -194,6 +204,16 @@
 
     </div>
 
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            hamburger.querySelector("i").classList.toggle("fa-bars");
+            hamburger.querySelector("i").classList.toggle("fa-xmark");
+        });
+    </script>
 
 
 </body>
